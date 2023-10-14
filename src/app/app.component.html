@@ -74,7 +74,8 @@
       </div>
     </div>
     <ul class="description">
-      <li class="description__info {{item.cardCenter}}" *ngFor="let item of advantages;let i=index">
+      <li class="description__info {{item.cardCenter}}" *ngFor="let item of advantages;let i=index;let last=last"
+          [ngClass]="{' card-center-top':last}">
         <div class="description__number">{{i + 1}}</div>
         <div class="description__heading">{{item.header}}</div>
         <div class="description__article">{{item.article}}</div>
@@ -87,7 +88,7 @@
   <div class="container products__container">
     <h2 class="products__heading">Выберите свой макарун</h2>
     <div class="products__cards">
-      <div class="card {{card.cardCenter}}" *ngFor="let card of products">
+      <div class="card" *ngFor="let card of products; let last=last" [ngClass]="{' card-center':last}">
         <div class="card__image">
           <img [src]="'../assets/images/'+card.image" alt="macaroon" class="card__image-img">
         </div>

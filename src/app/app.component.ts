@@ -34,7 +34,6 @@ export class AppComponent {
     {
       header: "Честный продукт",
       article: "Вкус, качество и безопасность наших пирогов подтверждена декларацией о соответствии, которую мы получили 22.06.2016 г",
-      cardCenter: " card-center"
     },
   ]
 
@@ -59,7 +58,6 @@ export class AppComponent {
       header: "Пирог с фисташками",
       amount: "1 шт.",
       price: "1,65 руб.",
-      cardCenter: " card-center"
     },
   ]
 
