@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card__image">
+    <img [src]="'../assets/images/'+card.image" alt="macaroon" class="card__image-img">
+  </div>
+  <p class="card__heading">{{card.header}}</p>
+  <div class="card__order-wrapper">
+    <div class="card__order-details">
+      <div class="card__amount">{{card.amount}}</div>
+      <div class="card__price">{{card.price | ruble:['руб']}}</div>
+    </div>
+    <button class="btn btn-image card__btn"(click)="addProductToCart()" ButtonDir [buttonDirBgColor]="'#4e7df5'"
+            [buttonDirDefaultBgColor]="'#c459f9'">Заказать
+    </button>
+  </div>
+</div>

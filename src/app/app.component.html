@@ -46,7 +46,8 @@
           пироженками
           Macaroon!
         </div>
-        <button class="btn main__btn" (click)="scrollTo(productsElement)">Выбрать макарун</button>
+        <button class="btn btn-image main__btn" (click)="scrollTo(productsElement)" ButtonDir [buttonDirBgColor]="'#2e5aca'"
+                [buttonDirDefaultBgColor]="'#8129ad'">Выбрать макарун</button>
       </div>
       <div class="main__image-wrapper">
         <div class="main__image-animation">
@@ -74,12 +75,8 @@
       </div>
     </div>
     <ul class="description">
-      <li class="description__info {{item.cardCenter}}" *ngFor="let item of advantages;let i=index;let last=last"
-          [ngClass]="{' card-center-top':last}">
-        <div class="description__number">{{i + 1}}</div>
-        <div class="description__heading">{{item.header}}</div>
-        <div class="description__article">{{item.article}}</div>
-      </li>
+      <advantages *ngFor="let advantage of advantages;let i=index" [advantage]="advantage" [index]="i"></advantages>
+
     </ul>
   </div>
 </section>
@@ -88,19 +85,9 @@
   <div class="container products__container">
     <h2 class="products__heading">Выберите свой макарун</h2>
     <div class="products__cards">
-      <div class="card" *ngFor="let card of products; let last=last" [ngClass]="{' card-center':last}">
-        <div class="card__image">
-          <img [src]="'../assets/images/'+card.image" alt="macaroon" class="card__image-img">
-        </div>
-        <p class="card__heading">{{card.header}}</p>
-        <div class="card__order-wrapper">
-          <div class="card__order-details">
-            <div class="card__amount">{{card.amount}}</div>
-            <div class="card__price">{{card.price}}</div>
-          </div>
-          <button class="btn card__btn" (click)="addToCart(card,orderElement)">Заказать</button>
-        </div>
-      </div>
+      <card *ngFor="let product of products" [card]="product"
+            (addToCartEvent)="addToCart($event,orderElement)">
+      </card>
     </div>
   </div>
 </section>
@@ -129,7 +116,8 @@
                class="form__contact form-all" [(ngModel)]="formValues.name">
         <input type="text" id="phone" name="phone" placeholder="+375 (__) ___ - __ - __"
                class="form__phone form-all" [(ngModel)]="formValues.phone">
-        <button type="button" class="btn form__btn" (click)="createOrder()">Оформить заказ</button>
+        <button type="button" class="btn btn-image form__btn" (click)="createOrder()"  ButtonDir [buttonDirBgColor]="'#0e3db4'"
+                [buttonDirDefaultBgColor]="'#7e0cb8'">Оформить заказ</button>
       </form>
       <div class="order__image-strawberry2">
         <img src="../assets/images/strawberry2.png" alt="strawberry">
@@ -152,11 +140,11 @@
     <div class="rights2">Все права защищены, 2020</div>
     <div *ngIf="showGift" class="footer__gift-parent">
       <div class="gift-message">
-        <span>Оформите заказ </span>
-        <span> и получите подарок!</span>
+        <span>{{this.cartService.getAmount()|ruble:['руб'] }}</span>
       </div>
       <div class="gift-image">
-        <img src="../assets/images/present.png" alt="present">
+        <span>{{this.cartService.getCounter()}}</span>
+        <img src="../assets/images/cart.png" alt="present">
       </div>
     </div>
   </div>
