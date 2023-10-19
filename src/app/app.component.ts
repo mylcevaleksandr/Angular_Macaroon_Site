@@ -18,9 +18,10 @@ export class AppComponent implements OnInit {
 
   constructor(private productService: ProductService,
               public cartService: CartService) {
-    this.phone = "+375 (29) 368-98-68"
+    this.phone = "375293689868"
     this.instagram = "Мы в Instagram"
     this.showGift = true
+      // +375 (29) 368-98-68
   }
 
   ngOnInit() {

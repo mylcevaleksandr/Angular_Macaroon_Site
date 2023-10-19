@@ -9,6 +9,8 @@ import {ProductService} from "./services/product.service";
 import {AdvantagesComponent} from './components/advantages/advantages.component';
 import {RublePipe} from './pipes/ruble.pipe';
 import { ButtonDirDirective } from './directives/button-dir.directive';
+import { TrimTextPipe } from './pipes/trim-text.pipe';
+import { PhoneNumberPipe } from './pipes/phone-number.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ButtonDirDirective } from './directives/button-dir.directive';
     AdvantagesComponent,
     RublePipe,
     ButtonDirDirective,
+    TrimTextPipe,
+    PhoneNumberPipe,
   ],
   imports: [
     BrowserModule,

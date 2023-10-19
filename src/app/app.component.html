@@ -33,7 +33,7 @@
           </li>
         </ul>
       </nav>
-      <div class="phone header__phone">{{phone}}</div>
+      <div class="phone header__phone">{{phone|phoneNumber}}</div>
     </div>
   </header>
 
@@ -136,11 +136,11 @@
       <img src="../assets/../assets/images/instagram%20(1)%C2%A0—%20копия.png" alt="instagram" class="social-img">
       <span class="instagram">{{instagram}}</span>
     </div>
-    <div class="phone footer__phone">{{phone}}</div>
+    <div class="phone footer__phone">{{phone|phoneNumber}}</div>
     <div class="rights2">Все права защищены, 2020</div>
     <div *ngIf="showGift" class="footer__gift-parent">
       <div class="gift-message">
-        <span>{{this.cartService.getAmount()|ruble:['руб'] }}</span>
+        <span>{{this.cartService.getAmount()|ruble:'руб' }}</span>
       </div>
       <div class="gift-image">
         <span>{{this.cartService.getCounter()}}</span>

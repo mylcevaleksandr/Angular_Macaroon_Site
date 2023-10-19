@@ -7,11 +7,6 @@ export class ProductService {
 
   constructor() {
   }
-
-  // getAdvantages(): AdvantagesType[] {
-  //
-  // }
-
   // Тут пытылся съимитировать работу запроса на сервер без any ts ругается. Что можно тут прописать вместо any?
   getProducts(params:string): ProductType[]|AdvantagesType[]|any{
    if (params==='products'){
@@ -40,7 +35,7 @@ export class ProductService {
      return [
        {
          header: "Лучшие продукты",
-         article: "Мы честно готовим макаруны только из натуральных и качественных продуктов. Мы не используем консерванты, ароматизаторы и красители."
+         article: "Мы честно готовим макаруны только из натуральных и качественных продуктов."
        },
        {
          header: "Много вкусов",
